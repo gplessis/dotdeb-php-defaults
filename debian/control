@@ -1,10 +1,7 @@
 Source: php-defaults
 Section: php
 Priority: optional
-Maintainer: Debian PHP Maintainers <pkg-php-maint@lists.alioth.debian.org>
-Uploaders: Ondřej Surý <ondrej@debian.org>,
-           Thijs Kinkhorst <thijs@debian.org>,
-           Lior Kaplan <kaplan@debian.org>
+Maintainer: Guillaume Plessis <gui@dotdeb.org>
 Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9)
 Vcs-Browser: http://anonscm.debian.org/?p=pkg-php/php-defaults.git

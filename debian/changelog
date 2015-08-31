@@ -1,3 +1,9 @@
+php-defaults (9-1~dotdeb+8.1) stable; urgency=medium
+
+  * Rebuilt for Dotdeb against Jessie
+
+ -- Guillaume Plessis <gui@dotdeb.org>  Sun, 30 Aug 2015 18:50:42 -0700
+
 php-defaults (9) unstable; urgency=medium
 
   * Update copyright on everything to match the Expat license
