@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# debian/rules for PHP defaults
+# Copyright (C) 2011 Ondřej Surý
+# Published under the Expat license
+#
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+PHP_DEFAULT_VERSION := 7.0
+
+export DH_OPTIONS
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	:
+
+override_dh_auto_make:
+	:
+
+override_dh_auto_install:
+	:
+
+override_dh_installcron:
+	dh_installcron -pphp-common --name=php
+
+debian/control: debian/control.in debian/rules debian/changelog
+	sed -e "s/@PHP_VERSION@/$(PHP_DEFAULT_VERSION)/g" >$@ <$<
+
+override_dh_install:
+	mkdir -p debian/$(PHP_COMMON)/var/lib/php/sessions/
+	chmod 01733 debian/$(PHP_COMMON)/var/lib/php/sessions/
+
+	dh_install
