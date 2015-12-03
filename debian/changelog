@@ -1,8 +1,29 @@
-php-defaults (9-1~dotdeb+8.1) stable; urgency=medium
+php-defaults (14-1~dotdeb+8.1) stable; urgency=medium
 
   * Rebuilt for Dotdeb against Jessie
 
- -- Guillaume Plessis <gui@dotdeb.org>  Sun, 30 Aug 2015 18:50:42 -0700
+ -- Guillaume Plessis <gui@dotdeb.org>  Wed, 02 Dec 2015 15:23:28 -0800
+
+php-defaults (14) experimental; urgency=medium
+
+  * Fix missing field in d/copyright
+  * Update d/control
+  * Don't generate php-json, php-interbase and php-opcache (yet)
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 26 Nov 2015 15:20:27 +0100
+
+php-defaults (13) experimental; urgency=medium
+
+  * Add meta packages for all modules
+  * Bump a version to one higher than src:php-modules
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 26 Nov 2015 15:12:33 +0100
+
+php-defaults (10) experimental; urgency=medium
+
+  * Get rid of php5 -> replace with php${version}
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 26 Nov 2015 15:10:04 +0100
 
 php-defaults (9) unstable; urgency=medium
 

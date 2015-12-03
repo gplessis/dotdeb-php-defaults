@@ -1,0 +1,15 @@
+curl CURL
+gd GD
+imap IMAP
+intl Internationalisation
+json JSON
+ldap LDAP
+mysql MySQL
+pgsql PostgreSQL
+opcache OpCache
+pspell pspell
+recode recode
+snmp SNMP
+sqlite3 SQLite3
+sybase Sybase
+tidy tidy
