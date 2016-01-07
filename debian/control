@@ -59,6 +59,21 @@ Description: package depending on all supported PHP development packages
  packages to avoid hardcoded dependencies on specific PHP development
  packages.
 
+Package: php-bz2
+Architecture: all
+Depends: php-common,
+         php7.0-bz2,
+         ${misc:Depends}
+Description: bzip2 module for PHP [default]
+ This package provides a bzip2 module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
 Package: php-cgi
 Architecture: all
 Depends: php7.0-cgi,
@@ -105,6 +120,36 @@ Description: Common files for PHP packages
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
+Package: php-curl
+Architecture: all
+Depends: php-common,
+         php7.0-curl,
+         ${misc:Depends}
+Description: CURL module for PHP [default]
+ This package provides a CURL module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-dbg
+Architecture: all
+Depends: php7.0-dbg,
+         ${misc:Depends}
+Description: Debug symbols for PHP (default)
+ This package provides the debug symbols for PHP needed for properly
+ debugging errors in PHP with gdb.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
 Package: php-dev
 Architecture: all
 Depends: php7.0-dev,
@@ -119,13 +164,178 @@ Description: HTML-embedded scripting language (Embedded SAPI library) (default)
  This package is a dependency package, which depends on Debian's default
  PHP version (currently 7.0).
 
-Package: php-fpm
+Package: php-enchant
 Architecture: all
-Depends: php7.0-fpm,
+Depends: php-common,
+         php7.0-enchant,
          ${misc:Depends}
-Description: server-side, HTML-embedded scripting language (FPM-CGI binary) (default)
- This package provides the Fast Process Manager interpreter that runs
- as a daemon and receives Fast/CGI requests.
+Description: Enchant module for PHP [default]
+ This package provides a Enchant module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-gd
+Architecture: all
+Depends: php-common,
+         php7.0-gd,
+         ${misc:Depends}
+Description: GD module for PHP [default]
+ This package provides a GD module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-gmp
+Architecture: all
+Depends: php-common,
+         php7.0-gmp,
+         ${misc:Depends}
+Description: GMP module for PHP [default]
+ This package provides a GMP module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-imap
+Architecture: all
+Depends: php-common,
+         php7.0-imap,
+         ${misc:Depends}
+Description: IMAP module for PHP [default]
+ This package provides a IMAP module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-interbase
+Architecture: all
+Depends: php-common,
+         php7.0-interbase,
+         ${misc:Depends}
+Description: Interbase module for PHP [default]
+ This package provides a Interbase module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-intl
+Architecture: all
+Depends: php-common,
+         php7.0-intl,
+         ${misc:Depends}
+Description: Internationalisation module for PHP [default]
+ This package provides a Internationalisation module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-json
+Architecture: all
+Depends: php-common,
+         php7.0-json,
+         ${misc:Depends}
+Description: JSON module for PHP [default]
+ This package provides a JSON module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-ldap
+Architecture: all
+Depends: php-common,
+         php7.0-ldap,
+         ${misc:Depends}
+Description: LDAP module for PHP [default]
+ This package provides a LDAP module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-mcrypt
+Architecture: all
+Depends: php-common,
+         php7.0-mcrypt,
+         ${misc:Depends}
+Description: libmcrypt module for PHP [default]
+ This package provides a libmcrypt module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-mysql
+Architecture: all
+Depends: php-common,
+         php7.0-mysql,
+         ${misc:Depends}
+Description: MySQL module for PHP [default]
+ This package provides a MySQL module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-odbc
+Architecture: all
+Depends: php-common,
+         php7.0-odbc,
+         ${misc:Depends}
+Description: ODBC module for PHP [default]
+ This package provides a ODBC module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-pgsql
+Architecture: all
+Depends: php-common,
+         php7.0-pgsql,
+         ${misc:Depends}
+Description: PostgreSQL module for PHP [default]
+ This package provides a PostgreSQL module for PHP.
  .
  PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
  open source general-purpose scripting language that is especially suited
@@ -149,145 +359,10 @@ Description: server-side, HTML-embedded scripting language (PHPDBG binary) (defa
  This package is a dependency package, which depends on Debian's default
  PHP version (currently 7.0).
 
-Package: php-curl
-Architecture: all
-Depends: php-common,
-	 php7.0-curl,
-         ${misc:Depends}
-Description: CURL module for PHP [default]
- This package provides a CURL module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
-Package: php-gd
-Architecture: all
-Depends: php-common,
-	 php7.0-gd,
-         ${misc:Depends}
-Description: GD module for PHP [default]
- This package provides a GD module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
-Package: php-imap
-Architecture: all
-Depends: php-common,
-	 php7.0-imap,
-         ${misc:Depends}
-Description: IMAP module for PHP [default]
- This package provides a IMAP module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
-Package: php-intl
-Architecture: all
-Depends: php-common,
-	 php7.0-intl,
-         ${misc:Depends}
-Description: Internationalisation module for PHP [default]
- This package provides a Internationalisation module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
-Package: php-json
-Architecture: all
-Depends: php-common,
-	 php7.0-json,
-         ${misc:Depends}
-Description: JSON module for PHP [default]
- This package provides a JSON module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
-Package: php-ldap
-Architecture: all
-Depends: php-common,
-	 php7.0-ldap,
-         ${misc:Depends}
-Description: LDAP module for PHP [default]
- This package provides a LDAP module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
-Package: php-mysql
-Architecture: all
-Depends: php-common,
-	 php7.0-mysql,
-         ${misc:Depends}
-Description: MySQL module for PHP [default]
- This package provides a MySQL module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
-Package: php-pgsql
-Architecture: all
-Depends: php-common,
-	 php7.0-pgsql,
-         ${misc:Depends}
-Description: PostgreSQL module for PHP [default]
- This package provides a PostgreSQL module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
-Package: php-opcache
-Architecture: all
-Depends: php-common,
-	 php7.0-opcache,
-         ${misc:Depends}
-Description: OpCache module for PHP [default]
- This package provides a OpCache module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
- .
- This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
-
 Package: php-pspell
 Architecture: all
 Depends: php-common,
-	 php7.0-pspell,
+         php7.0-pspell,
          ${misc:Depends}
 Description: pspell module for PHP [default]
  This package provides a pspell module for PHP.
@@ -297,12 +372,27 @@ Description: pspell module for PHP [default]
  for web development and can be embedded into HTML.
  .
  This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
+ PHP version (currently 7.0).
+
+Package: php-readline
+Architecture: all
+Depends: php-common,
+         php7.0-readline,
+         ${misc:Depends}
+Description: readline module for PHP [default]
+ This package provides a readline module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
 
 Package: php-recode
 Architecture: all
 Depends: php-common,
-	 php7.0-recode,
+         php7.0-recode,
          ${misc:Depends}
 Description: recode module for PHP [default]
  This package provides a recode module for PHP.
@@ -312,12 +402,12 @@ Description: recode module for PHP [default]
  for web development and can be embedded into HTML.
  .
  This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
+ PHP version (currently 7.0).
 
 Package: php-snmp
 Architecture: all
 Depends: php-common,
-	 php7.0-snmp,
+         php7.0-snmp,
          ${misc:Depends}
 Description: SNMP module for PHP [default]
  This package provides a SNMP module for PHP.
@@ -327,12 +417,12 @@ Description: SNMP module for PHP [default]
  for web development and can be embedded into HTML.
  .
  This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
+ PHP version (currently 7.0).
 
 Package: php-sqlite3
 Architecture: all
 Depends: php-common,
-	 php7.0-sqlite3,
+         php7.0-sqlite3,
          ${misc:Depends}
 Description: SQLite3 module for PHP [default]
  This package provides a SQLite3 module for PHP.
@@ -342,12 +432,12 @@ Description: SQLite3 module for PHP [default]
  for web development and can be embedded into HTML.
  .
  This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
+ PHP version (currently 7.0).
 
 Package: php-sybase
 Architecture: all
 Depends: php-common,
-	 php7.0-sybase,
+         php7.0-sybase,
          ${misc:Depends}
 Description: Sybase module for PHP [default]
  This package provides a Sybase module for PHP.
@@ -357,12 +447,12 @@ Description: Sybase module for PHP [default]
  for web development and can be embedded into HTML.
  .
  This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
+ PHP version (currently 7.0).
 
 Package: php-tidy
 Architecture: all
 Depends: php-common,
-	 php7.0-tidy,
+         php7.0-tidy,
          ${misc:Depends}
 Description: tidy module for PHP [default]
  This package provides a tidy module for PHP.
@@ -372,5 +462,34 @@ Description: tidy module for PHP [default]
  for web development and can be embedded into HTML.
  .
  This package is a dependency package, which depends on Debian's default
- PHP version (currently @PHP_VERSION@).
+ PHP version (currently 7.0).
 
+Package: php-xmlrpc
+Architecture: all
+Depends: php-common,
+         php7.0-xmlrpc,
+         ${misc:Depends}
+Description: XMLRPC-EPI module for PHP [default]
+ This package provides a XMLRPC-EPI module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).
+
+Package: php-xsl
+Architecture: all
+Depends: php-common,
+         php7.0-xsl,
+         ${misc:Depends}
+Description: XSL module for PHP [default]
+ This package provides a XSL module for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
+ .
+ This package is a dependency package, which depends on Debian's default
+ PHP version (currently 7.0).

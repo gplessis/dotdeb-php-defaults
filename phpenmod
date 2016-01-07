@@ -257,13 +257,6 @@ mods=""
 for mod in $@; do
     mods="${mods}${mods:+ }${mod%%/*}"
 done
-if [ "$register" = "no" ]; then
-    sapis="${sapis:-ALL}"
-
-    if [ "$sapis" = "ALL" ]; then
-	register=yes
-    fi
-fi
 
 [ -z "$mods" ] && usage
 
