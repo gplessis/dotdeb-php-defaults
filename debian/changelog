@@ -1,3 +1,9 @@
+php-defaults (21-1~dotdeb+8.1) stable; urgency=medium
+
+  * Sync with Debian
+
+ -- Guillaume Plessis <gui@dotdeb.org>  Thu, 07 Jan 2016 09:12:30 -0800
+
 php-defaults (14-1~dotdeb+8.1) stable; urgency=medium
 
   * Rebuilt for Dotdeb against Jessie
