@@ -40,8 +40,9 @@ remove_state() {
 
 mod_registry() {
     local action=$1
-    local modname=$2
-    local registry_dir="$(get_registry_dir)"
+    local version=$2
+    local modname=$3
+    local registry_dir="$(get_registry_dir "$version")"
     local registry_file="${registry_dir}/${modname}"
 
     case $action in
@@ -117,13 +118,13 @@ get_priority() {
     local sapi=$2
     local modname=$3
 
-    local source_ini="/etc/php/mods-available/${modname}.ini"
+    local source_ini="/etc/php/${version}/mods-available/${modname}.ini"
 
     module_ret=0
     module_exists "$version" "$modname" || module_ret=$?
 
     if [ "$module_ret" -eq 0 ]; then
-	priority=$(sed -ne "s/^; ?priority=\([0-9]\+\)$/\\1/p" "$source_ini")
+	priority=$(sed -ne "s/^; \?priority=\([0-9]\+\)$/\\1/p; /[0-9]\+/q" "$source_ini")
 	[ -z "$priority" ] && priority=20
 	echo "$priority"
 	return 0
@@ -145,13 +146,13 @@ get_live_link_content() {
     local sapi=$2
     local modname=$3
     local priority=$4
-    echo "/etc/php/mods-available/${modname}.ini"
+    echo "/etc/php/${version}/mods-available/${modname}.ini"
 }
 
 module_exists() {
     local version=$1
     local modname=$2
-    local source_ini="/etc/php/mods-available/${modname}.ini"
+    local source_ini="/etc/php/${version}/mods-available/${modname}.ini"
 
     if [ ! -r "${source_ini}" ]; then
 	return 1
@@ -167,7 +168,8 @@ get_state_dir() {
 }
 
 get_registry_dir() {
-    echo "/var/lib/php/modules/registry"
+    local version=$1
+    echo "/var/lib/php/modules/${version}/registry"
     return 0
 }
 

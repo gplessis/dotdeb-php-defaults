@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+#DIVERT#
+
+#DEBHELPER#
+
+exit 0

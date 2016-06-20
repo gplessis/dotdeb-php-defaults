@@ -77,10 +77,10 @@ enmods() {
 			;;
 		esac
 	    done
+	    if [ "$register" = "yes" ]; then
+		mod_registry register "$version" "$mod"
+	    fi
 	done
-	if [ "$register" = "yes" ]; then
-	    mod_registry register "$mod"
-	fi
     done
 }
 
@@ -110,9 +110,9 @@ dismods() {
 	if [ "$purge" = "yes" ]; then
 	    remove_state enabled "$version" "$sapi" "$mod"
 	    remove_state disabled "$version" "$sapi" "$mod"
-	    mod_registry unregister "$mod"
+	    mod_registry unregister "$version" "$mod"
 	elif [ "$register" = "yes" ]; then
-	    mod_registry unregister "$mod"
+	    mod_registry unregister "$version" "$mod"
 	fi
     done
 }
@@ -123,7 +123,7 @@ enmod() {
     local modname=$3
 
     if ! module_exists "$version" "$modname"; then
-	warning "Module $modname ini file doesn't exist under /etc/php/mods-available"
+	warning "Module $modname ini file doesn't exist under /etc/php/${version}/mods-available"
 	return 1
     fi
 
@@ -185,7 +185,7 @@ dismod() {
 
     if ! module_exists "$version" "$modname"; then
 	if [ "$purge" = "no" ]; then
-	    warning "Module ${modname} ini file doesn't exist under /etc/php/mods-available"
+	    warning "Module ${modname} ini file doesn't exist under /etc/php/${version}/mods-available"
 	    return 1
 	fi
     fi
@@ -216,7 +216,7 @@ dismod() {
 	    return 1
     esac
 
-    if [ -d "/etc/php/$version/$sapi/conf.d" ]; then
+    if [ -d "/etc/php/${version}/${sapi}/conf.d" ]; then
 	if [ -h "$live_link" ]; then
 	    rm -f "$live_link"
 	fi
@@ -257,6 +257,10 @@ mods=""
 for mod in $@; do
     mods="${mods}${mods:+ }${mod%%/*}"
 done
+
+# If -v or -s was not specified run on every version and every SAPI
+[ -z "$versions" ] && versions=ALL
+[ -z "$sapis"    ] && sapis=ALL
 
 [ -z "$mods" ] && usage
 

@@ -1,3 +1,4 @@
+bcmath Bcmath
 bz2 bzip2
 curl CURL
 enchant Enchant
@@ -8,6 +9,7 @@ interbase Interbase
 intl Internationalisation
 json JSON
 ldap LDAP
+mbstring MBSTRING
 mcrypt libmcrypt
 mysql MySQL
 odbc ODBC
@@ -16,8 +18,10 @@ pspell pspell
 readline readline
 recode recode
 snmp SNMP
+soap SOAP
 sqlite3 SQLite3
 sybase Sybase
 tidy tidy
+xml DOM, SimpleXML, WDDX, XML, and XSL
 xmlrpc XMLRPC-EPI
-xsl XSL
+zip Zip

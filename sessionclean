@@ -21,14 +21,15 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-SAPIS="apache2:apache2\napache2filter:apache2\ncgi:php5\nfpm:php5-fpm\n"
+SAPIS="apache2:apache2 apache2filter:apache2 cgi:php@VERSION@ fpm:php@VERSION@-fpm cli:php@VERSION@"
 
 # Iterate through all web SAPIs
 (
+proc_names=""
 for version in $(/usr/sbin/phpquery -V); do
-    proc_names=""
-    printf "$SAPIS" | \
-    while IFS=: read -r conf_dir proc_name; do
+    for sapi in ${SAPIS}; do
+	conf_dir=${sapi%%:*}
+	proc_name=${sapi##*:}
 	if [ -e /etc/php/${version}/${conf_dir}/php.ini ]; then
 	    # Get all session variables once so we don't need to start PHP to get each config option
 	    session_config=$(PHP_INI_SCAN_DIR=/etc/php/${version}/${conf_dir}/conf.d/ php${version} -c /etc/php/${version}/${conf_dir}/php.ini -d "error_reporting='~E_ALL'" -r 'foreach(ini_get_all("session") as $k => $v) echo "$k=".$v["local_value"]."\n";')
@@ -37,7 +38,7 @@ for version in $(/usr/sbin/phpquery -V); do
 	    gc_maxlifetime=$(($(echo "$session_config" | sed -ne 's/^session\.gc_maxlifetime=\(.*\)$/\1/p')/60))
 	    
 	    if [ "$save_handler" = "files" -a -d "$save_path" ]; then
-		proc_names="$proc_names $proc_name";
+		proc_names="$proc_names $(echo "$proc_name" | sed -e "s,@VERSION@,$version,")";
 		printf "%s:%s\n" "$save_path" "$gc_maxlifetime"
 	    fi
 	fi
@@ -45,7 +46,7 @@ for version in $(/usr/sbin/phpquery -V); do
 done
 # first find all open session files and touch them (hope it's not massive amount of files)
 for pid in $(pidof $proc_names); do
-    find "/proc/$pid/fd" -ignore_readdir_race -lname "$save_path/sess_\*" -exec touch -c {} \;
+    find "/proc/$pid/fd" -ignore_readdir_race -lname "$save_path/sess_\*" -exec touch -c {} \; 2>/dev/null
 done ) | \
     sort -rn -t: -k2,2 | \
     sort -u -t: -k 1,1 | \

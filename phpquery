@@ -89,16 +89,17 @@ list_mod() {
     local _version=$1
     local _sapi=$2
     local verbose=$3
-    local registry_dir="$(get_registry_dir)"
 
-    if [ -d "$registry_dir" ]; then
-	for mod in $(list_parts "$registry_dir"); do
-	    if [ "$_version" = "ALL" ]; then
-		versions=$(list_version)
-	    else
-		versions=$_version
-	    fi
-	    for version in $versions; do
+    if [ "$_version" = "ALL" ]; then
+	versions=$(list_version)
+    else
+	versions=$_version
+    fi
+
+    for version in $versions; do
+	local registry_dir="$(get_registry_dir "$version")"
+	if [ -d "$registry_dir" ]; then
+	    for mod in $(list_parts "$registry_dir"); do
 		if [ "$_sapi" = "ALL" ]; then
 		    sapis=$(list_sapi $version)
 		else
@@ -112,18 +113,18 @@ list_mod() {
 		    echo $mod
 		fi
 	    done
-	done
-	return 0
-    fi
-    return 1
+	fi
+    done
+    return 0
 }
 
 list_version() {
     local version_dir="$(get_version_dir)"
     if [ -d "$version_dir" ]; then
+	local version=
 	for version in $(list_parts_regex "$version_dir" '.*[0-9]\.[0-9]'); do
 	    echo $version;
-	done
+	done | sort -rn
     fi
 }
 
