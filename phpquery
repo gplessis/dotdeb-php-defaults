@@ -193,6 +193,7 @@ action() {
 	list_sapi) list_sapi "$version" || ret=$?;;
 	*) usage "Unknown action $action";;
     esac
+    return $ret
 }
 
 verbose=no
